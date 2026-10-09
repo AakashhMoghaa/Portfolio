@@ -1,0 +1,80 @@
+.hero-content {
+    animation: hero-enter .7s cubic-bezier(.2, .75, .25, 1) both;
+}
+
+.hero-subtitle {
+    animation: hero-item-enter .55s .08s ease-out both;
+}
+
+.hero h1 {
+    animation: hero-item-enter .65s .14s ease-out both;
+}
+
+.hero h2,
+.hero-description {
+    animation: hero-item-enter .6s .22s ease-out both;
+}
+
+.hero-buttons,
+.availability {
+    animation: hero-item-enter .6s .3s ease-out both;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 28%, rgba(255, 255, 255, .28) 50%, transparent 72%);
+    content: "";
+    pointer-events: none;
+    transform: translateX(-120%);
+    transition: transform .55s ease;
+}
+
+.btn:hover::after {
+    transform: translateX(120%);
+}
+
+@keyframes hero-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hero-item-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content,
+    .hero-subtitle,
+    .hero h1,
+    .hero h2,
+    .hero-description,
+    .hero-buttons,
+    .availability {
+        animation: none;
+    }
+
+    .btn::after {
+        display: none;
+    }
+}
